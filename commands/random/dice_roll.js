@@ -6,13 +6,22 @@ class DiceRollCommand extends commando.Command {
             name: 'roll',
             group: 'random',
             memberName: 'roll',
-            description: 'Rolls a die'
+            description: 'Rolls a die',
+            args: [
+                {
+                    default: 6,
+                    key: 'range',
+                    prompt: 'Number from 1 to chosen number it will randomize',
+                    type: 'integer'
+                }
+            ]
         });
     }
 
-    async run(message, args) {
-        var inputs = args.split(" ");
-        var roll = Math.floor(Math.random() * 6) + 1;
+    async run(message, {range}) {
+        //var inputs = args.split(" ");
+        //console.log(range);
+        var roll = Math.floor(Math.random() * range) + 1;
         message.reply("You rolled a " + roll);
     }
 }
