@@ -3,7 +3,9 @@ const commando = require('discord.js-commando');
 //const bot = new Discord.Client();
 const bot = new commando.Client();
 
-bot.registry.registerGroup('random', 'Random');
+bot.registry.registerGroups([
+    ['random', 'Commands dealing with random numbers'],
+['message', 'Send messages to other users']]);
 bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname + "/commands");
 
