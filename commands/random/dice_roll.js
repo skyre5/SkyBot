@@ -15,8 +15,10 @@ class DiceRollCommand extends commando.Command {
                     prompt: 'Number from 1 to chosen number it will randomize',
                     type: 'integer',
                     validate: range => {
-                        if (!Number.isInteger(range)) {
-                            return "Invalid: Enter an Integer!";
+                        //Will stop if the number isn't an integer
+                        //Stops junk values
+                        if (isNaN(range)) {
+                            return "Invalid: Enter a number!";
                         }
                         if (range < 0) {
                             return "No negative numbers";

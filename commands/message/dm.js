@@ -7,6 +7,9 @@ class DirectMessage extends commando.Command {
             group: 'message',
             memberName: 'dm',
             description: 'Sends a message to a specific user',
+            //Only in servers when true
+            //Guild is a server
+            //guildOnly: true,
             //No more than 5 dm commands in 2 minutes
             throttling: {
                 usages: 5,
