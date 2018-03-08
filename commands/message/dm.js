@@ -7,6 +7,11 @@ class DirectMessage extends commando.Command {
             group: 'message',
             memberName: 'dm',
             description: 'Sends a message to a specific user',
+            //No more than 5 dm commands in 2 minutes
+            throttling: {
+                usages: 5,
+                duration: 120
+            },
             args: [
                 {
                     key: 'user',

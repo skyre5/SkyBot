@@ -4,6 +4,7 @@ class DiceRollCommand extends commando.Command {
     constructor(client) {
         super(client, {
             name: 'roll',
+            aliases: ['die', 'dice', 'random'],
             group: 'random',
             memberName: 'roll',
             description: 'Rolls a die',
@@ -12,7 +13,16 @@ class DiceRollCommand extends commando.Command {
                     default: 6,
                     key: 'range',
                     prompt: 'Number from 1 to chosen number it will randomize',
-                    type: 'integer'
+                    type: 'integer',
+                    validate: range => {
+                        if (!Number.isInteger(range)) {
+                            return "Invalid: Enter an Integer!";
+                        }
+                        if (range < 0) {
+                            return "No negative numbers";
+                        }
+                        return true;
+                    }
                 }
             ]
         });
